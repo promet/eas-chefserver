@@ -21,6 +21,5 @@ fi
 cat > /tmp/solo.rb << EOF
 file_cache_path "/tmp"
 cookbook_path    ["/tmp/cookbooks/"]
-log_level        :debug
 EOF
 sudo chef-solo -c /tmp/solo.rb -j $DIR/node.json
