@@ -16,7 +16,7 @@ TODO: List your supported platforms.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['infra-chefserver/']['bacon']</tt></td>
+    <td><tt>['eas-chefserver/']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -27,16 +27,16 @@ TODO: List your supported platforms.
 
 ### infra-chefserver::default
 
-Include `infra-chefserver` in your node's `run_list`:
+Include `eas-chefserver` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[infra-chefserver::default]"
+    "recipe[eas-chefserver::default]"
   ]
 }
 ```
 
 ## License and Authors
 
-Author:: opscale (<pmoosh@opscale.com>)
+Author:: opscale (<cookbooks@opscale.com>)
