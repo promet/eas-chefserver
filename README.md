@@ -1,4 +1,4 @@
-# infra-chefserver/-cookbook
+# eas-chefserver/-cookbook
 
 Bootstrapping opensource chef server for EAS infrastructure project.
 
