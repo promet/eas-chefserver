@@ -42,7 +42,7 @@ knife configure -i
 Upload cookbooks via berks to a newly created chefserver:
 berks upload --ssl-verify=false
 
-Create a role named "loghost":
+Create a role named "loghost" (for now - allows eas-base to detect the loghost - might change later):
 ```
 {
   "name": "loghost",
