@@ -22,7 +22,10 @@ To initially bootstrap a Chef Server for the EAS infrastructure, following steps
 
 - provide a system/node with at least 2GB of main memory.
 - install git on this system e.g. sudo apt-get install git
-- clone this repository in the systems tmp directory
+- clone this repository in the systems tmp directory:
+  git clone https://username:password@github.com/promet/eas-chefserver.git
+  Note: In case of 2 factor authentication - create a Personal access tokens on github and do:
+  git clone https://PERSONAL_ACCESS_TOKEN@github.com/promet/eas-chefserver.git
 - cd to /tmp/eas-chefserver
 - run the `./install.sh` script
 
@@ -33,6 +36,30 @@ This script will perform all the necessary steps install and configure Chef Serv
 - create a config file for the chef-solo run
 - run `chef-solo` install and configure the Chef Server
 
+After the chef server is configured create a chef user account using:
+knife configure -i
+
+Upload cookbooks via berks to a newly created chefserver:
+berks upload --ssl-verify=false
+
+Create a role named "loghost":
+```
+{
+  "name": "loghost",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[eas-logstash::server]"
+  ],
+  "env_run_lists": {
+  }
+}
+```
 ### runlist
 
 Include `recipe[eas-chefserver::default]` in your node's `run_list`:
